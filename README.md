@@ -1,0 +1,656 @@
+# 🇮🇳 MPLADS Samiksha Monitor
+
+> **AI-powered monitoring, risk intelligence and decision-support platform for MPLADS works and fund utilization.**
+
+[![Smart India Hackathon 2026](https://img.shields.io/badge/Smart%20India%20Hackathon-2026-blue)](https://www.sih.gov.in/)
+[![Problem Statement](https://img.shields.io/badge/PS-SIH26102-orange)](https://www.sih.gov.in/)
+[![Frontend](https://img.shields.io/badge/Frontend-React%2019-61DAFB)](https://react.dev/)
+[![Backend](https://img.shields.io/badge/Backend-Node.js%20%2B%20Express-339933)](https://expressjs.com/)
+[![AI/ML](https://img.shields.io/badge/AI%2FML-Python%20%2B%20scikit--learn-F7DF1E)](https://scikit-learn.org/)
+[![Database](https://img.shields.io/badge/Database-SQLite%20%7C%20PostgreSQL-336791)](https://www.postgresql.org/)
+
+## 📌 Project at a Glance
+
+**Problem Statement ID:** SIH26102  
+**Problem Statement:** Development of an AI-powered system to detect anomalies, fraud, and inefficiencies in MPLAD Scheme implementation regd.  
+**Theme:** Smart Automation  
+**Category:** Software  
+**Organization:** Ministry of Statistics & Programme Implementation (MoSPI)  
+**Team ID:** 154920  
+**Team Name:** 6_Sighters
+
+MPLADS generates a large volume of project, financial and execution data. The goal of this project is to turn that data into **actionable risk intelligence**—helping authorized stakeholders identify unusual spending, cost overruns, payment–progress mismatches, potential duplicate works, delays and compliance deviations earlier, instead of relying only on manual review.
+
+---
+
+## 🎯 What We Built
+
+**MPLADS Samiksha Monitor** is a unified web-based governance platform that brings project, finance, risk, analytics and geospatial monitoring into one workflow.
+
+```mermaid
+flowchart LR
+    A[MPLADS Data] --> B[Data Cleaning & Feature Engineering]
+    B --> C[(Operational Data Store)]
+    C --> D[Financial Anomaly Analysis]
+    C --> E[Duplicate / Similarity Analysis]
+    C --> F[Delay & Compliance Analysis]
+    D --> G[Composite Risk Intelligence]
+    E --> G
+    F --> G
+    G --> H[Risk Score + Explainable Reasons]
+    H --> I[Alerts & Early Warning]
+    I --> J[Human Verification / Investigation]
+    C --> K[Trends + GIS Analytics]
+    J --> L[Audit Trail]
+    H --> M[React Governance Dashboard]
+    K --> M
+    I --> M
+```
+
+### Core idea
+
+**AI flags → authorized official verifies → action is recorded.**
+
+The platform is designed to **identify suspicious patterns and prioritize cases for review**, not to declare fraud as a proven fact.
+
+---
+
+## ✨ Key Capabilities
+
+### 🔍 AI Risk Intelligence
+
+- **Cost-overrun detection** from sanctioned amounts and expenditure.
+- **Expenditure anomaly detection** using statistical signals and anomaly rules.
+- **Payment–progress mismatch detection** when financial utilization significantly outpaces physical progress.
+- **Delay and milestone analysis** based on project timelines and progress.
+- **Duplicate/similarity detection** using project text and metadata.
+- **Composite risk scoring** with a transparent 0–100 score.
+- **Explainable risk reasons** showing why a work was flagged.
+- **Early-warning alerts** for important risk conditions.
+
+### 📊 Monitoring & Analytics
+
+- National, state, district and constituency-level monitoring.
+- Financial and fund-utilization intelligence.
+- Macro trend and comparative analytics.
+- Risk distribution and anomaly breakdown.
+- Project-wise risk dossiers.
+- Payment and finance views.
+- Predictive/early-warning views.
+- GIS risk map and location-aware monitoring.
+
+### 🧑‍💼 Governance & Accountability
+
+- Role-aware dashboards for:
+  - **Members of Parliament**
+  - **District Authorities**
+  - **State Nodal Authorities**
+  - **Ministry / Admin**
+- Jurisdiction-based data scoping.
+- Alert verification workflow.
+- Investigation and evidence management.
+- Administrative audit-log view.
+- AI Copilot for natural-language queries over project data.
+
+---
+
+## 🧠 AI / Analytics Approach
+
+### 1. Financial Risk
+
+The financial module combines multiple signals:
+
+```text
+Cost Overrun
+     +
+Expenditure Spike
+     +
+Payment–Progress Mismatch
+     ↓
+Financial Risk Score
+```
+
+The current Python implementation includes:
+- sanctioned-vs-expenditure overrun checks,
+- Z-score based expenditure-spike detection,
+- payment-utilization vs physical-progress gap checks.
+
+### 2. Duplicate / Similar Work Detection
+
+```text
+Project Title
+     ↓
+Text Cleaning
+     ↓
+Lexical Similarity
+     +
+Metadata Similarity
+     ↓
+Duplicate / Suspicion Score
+```
+
+The repository includes TF-IDF similarity utilities as well as a high-performance candidate index using project tokens and geography before detailed comparison.
+
+### 3. Delay & Compliance
+
+```text
+Start / Expected Completion / Current Status
+                   ↓
+            Timeline Analysis
+                   ↓
+         Delay + Deviation Signals
+                   ↓
+             Risk / Warning
+```
+
+Compliance logic checks available project data for predefined conditions such as excessive expenditure or funds released without corresponding physical progress.
+
+### 4. Composite Risk
+
+The Python risk engine combines financial, delay and duplicate signals into a single score.
+
+Current classification:
+
+```text
+0–39   → Low
+40–69  → Medium
+70–100 → High
+```
+
+The risk dossier also exposes component scores and human-readable explanations.
+
+### 5. Early Warning
+
+Important anomaly conditions can automatically become alerts such as:
+
+- Cost overrun
+- Payment–progress mismatch
+- Potential duplicate
+- Timeline delay
+
+---
+
+## 🖥️ Platform Modules
+
+| Module | Purpose |
+|---|---|
+| **Dashboard** | High-level project, fund and risk overview |
+| **Parliament** | Parliamentary/MP-level monitoring view |
+| **Works** | Search, filter and monitor MPLADS works |
+| **Work Details** | Project dossier, financials, progress, risk and GIS context |
+| **Risks** | Risk intelligence and anomaly analysis |
+| **Alerts** | Risk-based alert and verification queue |
+| **Trends** | State/district comparative analytics |
+| **Finance** | Fund pipeline, expenditure and payment intelligence |
+| **Predictions** | Delay and cost-overrun early-warning views |
+| **National Map** | GIS-based risk and project visualization |
+| **Investigations** | Case creation and action tracking |
+| **Evidence** | Work-level evidence and verification |
+| **Audit Logs** | Administrative activity trail |
+| **AI Copilot** | Natural-language queries over MPLADS data |
+| **Profile** | Role, jurisdiction and account information |
+
+---
+
+## 👥 Role-Based Governance
+
+The system supports jurisdiction-aware access so that users see information relevant to their authorized scope.
+
+```text
+MP
+└── Constituency-level monitoring
+
+District Authority
+└── District works, finance, risk and alerts
+
+State Nodal Authority
+└── State-wide monitoring + district comparison
+
+Ministry / Admin
+└── National oversight + cross-state analytics
+```
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+- **React 19** — component-based web interface
+- **Vite 8** — frontend build and development server
+- **Tailwind CSS 4** — styling
+- **Recharts** — analytical charts
+- **Leaflet** — GIS/maps
+- **Lucide React** — interface icons
+- **SheetJS (XLSX)** — spreadsheet/data handling
+
+### Backend
+
+- **Node.js**
+- **Express.js**
+- **REST APIs**
+- **Multer** — file uploads
+- **JWT** — authentication
+- **bcryptjs** — password hashing
+- **pg** — PostgreSQL connectivity
+
+### AI / Data
+
+- **Python**
+- **Pandas**
+- **NumPy**
+- **scikit-learn**
+- **SciPy**
+- **joblib**
+- Statistical anomaly detection
+- TF-IDF / cosine similarity
+- Feature engineering
+- Rule-based compliance and risk logic
+
+### Data & Storage
+
+- **SQLite** — local operational/runtime data store
+- **PostgreSQL / Supabase** — cloud/database integration path
+- SQL schemas and seed scripts included
+
+---
+
+## 🏗️ Repository Structure
+
+```text
+MPLADS-AI-Monitoring/
+│
+├── frontend/                 # React + Vite web application
+│   ├── src/
+│   │   ├── api/              # API clients
+│   │   ├── components/       # Reusable UI components
+│   │   ├── context/          # Auth & language state
+│   │   ├── hooks/            # Reusable React hooks
+│   │   ├── pages/            # Dashboard, Works, Risks, Alerts, etc.
+│   │   └── utils/            # Formatting, parsing & helpers
+│   └── package.json
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/           # Database & application config
+│   │   ├── middleware/       # Authentication middleware
+│   │   ├── routes/           # REST API routes
+│   │   ├── services/         # Business & AI integration services
+│   │   └── server.js         # Active Node/Express server
+│   ├── app/                  # Additional FastAPI/SQLAlchemy scaffold
+│   ├── data/                 # National geography/master data
+│   ├── scripts/              # Data seeding, sync & maintenance scripts
+│   └── package.json
+│
+├── ai-engine/
+│   ├── ingestion/            # Dataset ingestion
+│   ├── preprocessing/        # Cleaning & feature engineering
+│   ├── financial/            # Financial anomaly analysis
+│   ├── duplicate_detection/  # Similarity / duplicate analysis
+│   ├── delay_compliance/     # Delay & compliance analysis
+│   ├── risk_engine/          # Composite risk, explanations & warnings
+│   └── run_pipeline.py       # Batch AI pipeline entry point
+│
+├── database/
+│   ├── schema.sql            # Core SQL schema
+│   ├── supabase_schema.sql   # PostgreSQL/Supabase schema
+│   ├── seed.sql              # Seed data
+│   └── sample_queries.sql
+│
+├── docs/
+│   └── api/
+│       └── API.md            # REST API reference
+│
+├── scripts/                  # Repository-level utilities
+├── docker-compose.yml
+├── package.json
+└── README.md
+```
+
+---
+
+## 🔄 End-to-End User Workflow
+
+```text
+1. Login
+   ↓
+2. Role & Jurisdiction Scope
+   ↓
+3. Dashboard Overview
+   ↓
+4. Explore Works / Finance / Trends / GIS
+   ↓
+5. AI Risk Analysis
+   ↓
+6. Open Project Dossier
+   ↓
+7. Understand "Why Flagged?"
+   ↓
+8. Review Alert / Evidence
+   ↓
+9. Create or update Investigation
+   ↓
+10. Record Action / Verification
+   ↓
+11. Audit Trail
+```
+
+---
+
+## 🔌 API Surface
+
+The active backend exposes APIs under:
+
+```text
+/api/v1
+```
+
+Major API groups include:
+
+```text
+/auth
+/jurisdiction
+/works
+/risks
+/dashboard
+/alerts
+/trends
+/users
+/investigations
+/evidence
+/finance
+/predictions
+/audit-logs
+/ai-copilot
+```
+
+The detailed endpoint reference is available in:
+
+```text
+docs/api/API.md
+```
+
+---
+
+## 🚀 Local Development
+
+### Prerequisites
+
+- **Node.js 22+** recommended for the active backend because the runtime uses Node's built-in `node:sqlite` API.
+- npm
+- Python 3.10+
+- Git
+- PostgreSQL/Supabase is optional for the local development path.
+
+### 1. Clone the repository
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd MPLADS-AI-Monitoring
+```
+
+### 2. Install backend dependencies
+
+```bash
+cd backend
+npm install
+```
+
+Create:
+
+```text
+backend/.env
+```
+
+from:
+
+```text
+backend/.env.example
+```
+
+Set a strong `SECRET_KEY` for anything beyond local/demo usage.
+
+### 3. Install frontend dependencies
+
+Open another terminal:
+
+```bash
+cd MPLADS-AI-Monitoring/frontend
+npm install
+```
+
+### 4. Start the backend
+
+```bash
+cd MPLADS-AI-Monitoring/backend
+npm run dev
+```
+
+Backend:
+
+```text
+http://localhost:8000
+```
+
+Health check:
+
+```text
+http://localhost:8000/health
+```
+
+### 5. Start the frontend
+
+```bash
+cd MPLADS-AI-Monitoring/frontend
+npm run dev
+```
+
+Frontend:
+
+```text
+http://localhost:5173
+```
+
+The Vite development server proxies `/api` requests to the backend on port `8000`.
+
+---
+
+## 🐳 Docker
+
+The repository also includes:
+
+```text
+docker-compose.yml
+```
+
+with services for:
+
+- PostgreSQL
+- Backend container
+- Frontend container
+
+Start with:
+
+```bash
+docker compose up --build
+```
+
+> **Implementation note:** the current `npm` development path uses the Node.js/Express backend in `backend/src/server.js`. The repository also contains a FastAPI/SQLAlchemy implementation scaffold under `backend/app`, and the backend Dockerfile references that scaffold. Treat the Node/Express path as the primary development runtime unless the container setup is deliberately aligned to the FastAPI path.
+
+---
+
+## 🗄️ Database
+
+The project currently supports two database paths:
+
+### Local runtime
+
+The active Node/Express server uses:
+
+```text
+database/mplads.db
+```
+
+as its local SQLite data store.
+
+### PostgreSQL / Supabase
+
+The repository includes:
+
+```text
+database/supabase_schema.sql
+```
+
+and Node/PostgreSQL integration for cloud synchronization and health checks.
+
+Configure:
+
+```env
+DATABASE_URL=<YOUR_POSTGRES_OR_SUPABASE_CONNECTION_STRING>
+```
+
+in your backend environment when using the PostgreSQL integration.
+
+---
+
+## 📈 Data & Prototype Scale
+
+The populated local project snapshot contains:
+
+- **77,184 works**
+- **77,184 risk assessments**
+- **61,871 expenditure records**
+- **21,482 contractors**
+- **4,085 alerts**
+- **36 states/UTs**
+- **787 districts**
+- **791 constituency records**
+- **5 roles / user records in the local snapshot**
+
+The exact data present in a fresh clone depends on whether the populated SQLite database is included/generated in the working environment.
+
+---
+
+## 🔐 Security & Governance
+
+The platform includes:
+
+- JWT-based authentication
+- Password hashing with bcrypt
+- Role-based access control
+- Jurisdiction-aware data filtering
+- Protected application routes
+- API authorization middleware
+- Verification and audit-oriented workflows
+
+### Before publishing or deploying
+
+**Do not commit secrets.**
+
+```text
+.env
+.env.production
+database credentials
+API keys
+private credentials
+```
+
+Use `.env.example` files as templates and generate real secrets locally or through your deployment platform.
+
+---
+
+## 📚 Research & Reference Basis
+
+The project presentation and research material are grounded in:
+
+1. **MoSPI MPLADS Portal** — official data source and scheme references  
+   https://mplads.mospi.gov.in
+
+2. **Public Accounts Committee & NITI Aayog** — monitoring and explainable-AI/governance references  
+   https://loksabha.nic.in  
+   https://niti.gov.in
+
+3. **Comptroller and Auditor General (CAG)** — audit/vulnerability references  
+   https://cag.gov.in
+
+4. **ISRO Bhuvan** — geospatial/public-asset reference  
+   https://bhuvan.nrsc.gov.in
+
+5. **World Bank Open Knowledge Repository** — data analytics / anomaly-detection research context  
+   https://openknowledge.worldbank.org
+
+---
+
+## 🎯 Problem-to-Solution Mapping
+
+| SIH 26102 Requirement | Platform Response |
+|---|---|
+| Fund utilization monitoring | Finance analytics + fund pipeline |
+| Expenditure anomalies | Financial anomaly engine |
+| Cost estimates / cost overruns | Cost-overrun analysis |
+| Work progress | Progress and execution monitoring |
+| Payments | Payment intelligence + mismatch analysis |
+| Duplicate works | Text + metadata similarity |
+| Delayed projects | Delay and milestone analysis |
+| Deviations / compliance | Automated rule-based checks |
+| Risk-based alerts | Alert engine + risk queue |
+| Predictive insights | Early-warning and prediction views |
+| Trend analysis | State/district/macro trend analytics |
+| GIS monitoring | National GIS risk map |
+| Decision support | Role-aware governance dashboards |
+| Human verification | Alerts → evidence → investigation → action trail |
+
+---
+
+## ⚠️ Important Scope Note
+
+This platform is designed to **detect anomalies, irregularities and potentially suspicious patterns** and to prioritize cases for authorized review.
+
+A high-risk score is **not itself a finding of fraud**. Final verification and administrative action remain with the appropriate authority.
+
+---
+
+## 🛣️ Future Expansion
+
+The current architecture is modular and can be extended with:
+
+- richer project milestone feeds,
+- stronger geospatial verification,
+- more advanced semantic similarity models,
+- improved predictive models trained on verified historical outcomes,
+- additional official data integrations,
+- continuous model recalibration,
+- production-grade cloud deployment and observability.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome.
+
+A typical development flow:
+
+```text
+Create branch
+   ↓
+Implement module
+   ↓
+Connect API / UI
+   ↓
+Commit with a clear message
+   ↓
+Open Pull Request
+```
+
+Please keep feature changes scoped to the relevant module and avoid committing generated files, local databases or secrets.
+
+---
+
+## 📄 Hackathon Context
+
+Built for **Smart India Hackathon 2026 — Problem Statement SIH26102** under the **Smart Automation** theme.
+
+**6_Sighters — Team ID 154920**
+
+> **Data + AI = Transparent MPLADS | Stronger Communities | A Developed India**
+
